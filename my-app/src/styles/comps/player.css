@@ -1,0 +1,330 @@
+.app-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 24px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+.app-player__left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    flex: 0 0 auto;
+}
+
+.app-player__cover {
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #1a1a1a;
+    position: relative;
+}
+
+.app-player__cover-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-player__cover-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+}
+
+.app-player__track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.app-player__title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1f2233;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+}
+
+.app-player__artist {
+    font-size: 13px;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+}
+
+.app-player__like {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 160ms ease;
+    padding: 0;
+    margin-left: 4px;
+}
+
+.app-player__like:hover {
+    background-color: #f3f4f6;
+}
+
+.app-player__like-icon {
+  width: 20px;
+  height: 20px;
+  transition: all 160ms ease;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Неактивное состояние - серый контур с прозрачной серединой */
+.app-player__like .app-player__like-icon {
+  color: #9ca3af;
+}
+
+.app-player__like .app-player__like-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: all 160ms ease;
+}
+
+/* Активное состояние - оранжевая заливка */
+.app-player__like--liked .app-player__like-icon {
+  color: #ff7f3e;
+}
+
+.app-player__like--liked .app-player__like-icon path {
+  fill: currentColor;
+  stroke: none;
+  transition: all 160ms ease;
+}
+
+.app-player__center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.app-player__controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.app-player__control {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #6b7280;
+    transition: background-color 160ms ease, color 160ms ease;
+    padding: 0;
+}
+
+.app-player__control:hover {
+    background-color: #f3f4f6;
+    color: #1f2233;
+}
+
+.app-player__control--play {
+    width: 56px;
+    height: 56px;
+    background: #9ca3af;
+    color: #ffffff;
+    font-size: 22px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.app-player__control--play:hover {
+    background: #6b7280;
+    color: #ffffff;
+}
+
+.app-player__progress {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.app-player__progress-bar {
+    flex: 1;
+    height: 4px;
+    background-color: #e5e7eb;
+    border-radius: 2px;
+    overflow: visible;
+    position: relative;
+    cursor: pointer;
+}
+
+.app-player__progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #ff7f3e;
+    border-radius: 2px;
+    transition: width 100ms ease;
+    position: relative;
+}
+
+.app-player__progress-fill::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #ff7f3e;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+
+.app-player__progress-bar:hover .app-player__progress-fill::after {
+    opacity: 1;
+}
+
+.app-player__progress-time {
+    font-size: 13px;
+    color: #6b7280;
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: center;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.app-player__right {
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+}
+
+.app-player__volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-player__volume-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.app-player__volume-icon path {
+    fill: #9ca3af;
+}
+
+.app-player__volume-slider {
+    width: 100px;
+    height: 4px;
+    background-color: #e5e7eb;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.app-player__volume-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #ff7f3e;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 100ms ease;
+    pointer-events: none;
+}
+
+.app-player__volume-thumb {
+    width: 12px;
+    height: 12px;
+    background-color: #ff7f3e;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: left 100ms ease, opacity 150ms ease;
+    pointer-events: auto;
+    z-index: 1;
+    opacity: 0;
+}
+
+.app-player__volume-slider:hover .app-player__volume-thumb {
+    opacity: 1;
+}
+
+.app-player__volume-thumb:active {
+    cursor: grabbing;
+    opacity: 1;
+}

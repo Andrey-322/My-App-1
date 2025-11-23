@@ -1,0 +1,56 @@
+.app-side {
+  width: 240px;
+  min-width: 240px;
+  background-color: #F5F5F5;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Actor', sans-serif;
+}
+
+.app-side__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #11253D;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 160ms ease, color 160ms ease;
+  position: relative;
+}
+
+.app-side__item:hover {
+  background-color: #f9fafb;
+}
+
+.app-side__item--active {
+  background-color: #fff;
+  color: #11253D;
+}
+
+.app-side__item--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #ff7f3e 0%, #ff5a1f 100%);
+}
+
+.app-side__icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.app-side__item--active .app-side__icon {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(95%) saturate(2000%) hue-rotate(350deg) brightness(1.1) contrast(1);
+}
+
+.app-side__text {
+  flex: 1;
+}
