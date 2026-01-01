@@ -1,0 +1,89 @@
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 280px;
+  max-width: 320px;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  padding: 16px;
+}
+
+.restaurant-name {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.restaurant-cuisine {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.star {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.1s ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star-full {
+  color: #ff6b6b;
+}
+
+.star-half {
+  color: #ff6b6b;
+  position: relative;
+  overflow: hidden;
+}
+
+.star-half::after {
+  content: '★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #ddd;
+}
+
+.star-empty {
+  color: #ddd;
+}
+

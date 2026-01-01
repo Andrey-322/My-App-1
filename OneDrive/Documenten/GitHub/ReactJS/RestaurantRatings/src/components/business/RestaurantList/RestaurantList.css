@@ -1,0 +1,33 @@
+.restaurant-list {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.restaurant-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.restaurant-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.restaurant-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.restaurant-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.restaurant-list-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #999;
+  font-size: 18px;
+}
+
